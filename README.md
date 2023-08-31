@@ -12,7 +12,7 @@ matplotlib>=3.0.0
 
 # Running the Program
 
-To run the ETC, simply call `python [PATH TO FILE]/KCWI-ETC-Red.py slicer grating grat_wave f_lam_index seeing exposure_time *args` where `slicer`, `grating`, `grat_wave` ,`f_lam_index`, `seeing`, and `exposure_time` are requried positional arguments (described below), and `*args` are optional keywords arguments (also described below):
+To run the ETC, simply call `python [PATH TO DIRECTORY]/KCWI-ETC-Red/KCWI-ETC-Red.py slicer grating grat_wave f_lam_index seeing exposure_time *args` where `slicer`, `grating`, `grat_wave` ,`f_lam_index`, `seeing`, and `exposure_time` are requried positional arguments (described below), and `*args` are optional keywords arguments (also described below):
 
 ## Required positional arguments:
 
