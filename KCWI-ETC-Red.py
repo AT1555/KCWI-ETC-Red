@@ -56,7 +56,7 @@ def ketc(slicer,grating,grat_wave,f_lam_index,seeing,exposure_time,ccd_bin='1x1'
     
     if emline_width: flux = flux/emline_width
     if not flux and emline_width: 
-        print('Dont use mag_AB for emission line')
+        print('Do not use mag_AB for emission line')
         return
     if mag_AB and ~sb: flux = (10**(-0.4*(mag_AB+48.6)))*(3e18/grat_wave)/grat_wave/snr_spatial_bin
     if mag_AB and sb: flux = (10**(-0.4*(mag_AB+48.6)))*(3e18/grat_wave)/grat_wave
@@ -69,10 +69,10 @@ def ketc(slicer,grating,grat_wave,f_lam_index,seeing,exposure_time,ccd_bin='1x1'
     if mag_AB and sb:
         flux_input = 'mag_AB / arcsec^2'
         print(f'OBJECT mag: {mag_AB} {flux_input}')
-    if flux and ~sb and ~emline_width: flux_input = 'erg cm^-2 s^-1 Å^-1'
-    if flux and ~sb and emline_width: flux_input = f'erg cm^-2 s^-1 in {emline_width:4.1f} Å'
-    if flux and sb and ~emline_width: flux_input = 'erg cm^-2 s^-1 Å^-1 arcsec^-2'
-    if flux and sb and emline_width: flux_input = f'erg cm^-2 s^-1 arcsec^-2 in {emline_width:4.1f} Å'
+    if flux and ~sb and ~bool(emline_width): flux_input = 'erg cm^-2 s^-1 Å^-1'
+    if flux and ~sb and emline_width: flux_input = f'erg cm^-2 s^-1 Å^-1 over {emline_width:4.1f} Å'
+    if flux and sb and ~bool(emline_width): flux_input = 'erg cm^-2 s^-1 Å^-1 arcsec^-2'
+    if flux and sb and emline_width: flux_input = f'erg cm^-2 s^-1 Å^-1 arcsec^-2 over {emline_width:4.1f} Å'
     if flux: print(f'OBJECT Flux {flux} {flux_input}')
     if emline_width: print('EMISSION LINE OBJECT --> flux is not per unit Å')
     
@@ -194,7 +194,6 @@ def sky_mk(wave, grat):
 if __name__=='__main__':
 
 	args=sys.argv[1:]
-	print(args)
 	
 	if len(args)==6: 
 		print('You must specify a flux or magnitude')
