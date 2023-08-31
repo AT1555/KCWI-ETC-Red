@@ -2,6 +2,8 @@
 
 A Python translation of the IDL red side ETC hosted at https://www2.keck.hawaii.edu/inst/kcwi/etc.html. 
 
+Disclaimer: This is simply a translation of the existing ETC from IDL. The red side of KCWI is still very new, therefore the calculations from this program are not expected to be perfectly accurate.  
+
 # Prerequisites
 
 Python>=3.8
